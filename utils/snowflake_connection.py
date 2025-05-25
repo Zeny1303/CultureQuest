@@ -14,6 +14,7 @@ def create_connection():
         account=sf_secrets["account"],
         warehouse=sf_secrets["warehouse"],
         database=sf_secrets["database"],
-        schema=sf_secrets["schema"]
+        schema=sf_secrets["schema"],
+        role=sf_secrets["role"]
     )
     return conn
