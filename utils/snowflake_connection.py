@@ -5,16 +5,13 @@
 import streamlit as st
 import snowflake.connector
 
-@st.cache_resource
 def create_connection():
-    sf_secrets = st.secrets["snowflake"]
     conn = snowflake.connector.connect(
-        user=sf_secrets["user"],
-        password=sf_secrets["password"],
-        account=sf_secrets["account"],
-        warehouse=sf_secrets["warehouse"],
-        database=sf_secrets["database"],
-        schema=sf_secrets["schema"],
-        role=sf_secrets["role"]
+        user=st.secrets["snowflake"]["user"],
+        password=st.secrets["snowflake"]["password"],
+        account=st.secrets["snowflake"]["account"],
+        warehouse=st.secrets["snowflake"]["warehouse"],
+        database=st.secrets["snowflake"]["database"],
+        schema=st.secrets["snowflake"]["schema"]
     )
     return conn
